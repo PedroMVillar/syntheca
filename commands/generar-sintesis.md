@@ -34,6 +34,7 @@ Este es el comando central del plugin. Dispara el pipeline completo de subagente
 4. Corré `scripts/update_mapa_estudio.py` para registrar el nuevo tema, familia(s), dificultad inicial y fecha en `mapa-estudio.json`.
 5. Presentá el PDF final (y opcionalmente el `.tex`) al usuario.
 6. Si el tema de esta síntesis pertenece a algún `examen_programado` (`mapa-estudio.json`), invocá `generador-mapa-mental` para regenerar el mapa vivo de ese examen con el nuevo concepto incorporado.
+7. Invocá `generador-flashcards` con los conceptos de esta síntesis — se agregan al mazo de la materia automáticamente, sin acción tuya.
 
 ## Notas
 
