@@ -101,3 +101,9 @@
 **Memoria es el residuo del pensamiento** — se recuerda lo que se piensa activamente, no lo que el diseñador del material "quería" que se recordara; principio central para auditar cualquier ejercicio. (WDSL Ch3)
 
 **Salto lógico (logical gap)** — información que todo texto deja implícita asumiendo que el lector puede inferirla con su conocimiento de fondo; sin ese conocimiento, se vuelve un agujero real de comprensión. (WDSL Ch2)
+
+**Error de predicción (flashcards)** — el desfase entre la respuesta que predecís al ver el frente de una card y la respuesta real del dorso; es la señal que dispara consolidación de memoria, no un efecto secundario del repaso. (Fuente: principios de diseño de flashcards)
+
+**Sobreaprendizaje (overlearning)** — seguir evaluando una card después de acertarla la primera vez, hasta responderla bien más de una vez en la misma sesión; compila la operación mental y libera recursos de atención ejecutiva. (Fuente: principios de diseño de flashcards)
+
+**Clasificación dinámica por rendimiento** — sistema donde fallar una card la devuelve a revisión de corto plazo y acertarla la aleja a intervalos mayores; en Anki es nativo (Learning Steps + scheduler), no requiere lógica propia. (Fuente: principios de diseño de flashcards)
