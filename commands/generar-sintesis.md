@@ -33,6 +33,7 @@ Este es el comando central del plugin. Dispara el pipeline completo de subagente
 3. Si hubo `verificador-numerico`, copiá también el/los script(s) de verificación como archivos entregables aparte.
 4. Corré `scripts/update_mapa_estudio.py` para registrar el nuevo tema, familia(s), dificultad inicial y fecha en `mapa-estudio.json`.
 5. Presentá el PDF final (y opcionalmente el `.tex`) al usuario.
+6. Si el tema de esta síntesis pertenece a algún `examen_programado` (`mapa-estudio.json`), invocá `generador-mapa-mental` para regenerar el mapa vivo de ese examen con el nuevo concepto incorporado.
 
 ## Notas
 
