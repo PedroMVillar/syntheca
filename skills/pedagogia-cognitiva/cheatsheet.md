@@ -24,6 +24,8 @@
 | Ejercicio para entrenar patrón, no solo resultado | Considerar meta abierta en vez de fija ("encontrá todo lo que puedas") | CLT Parte III-B (goal-free effect) |
 | Concepto abstracto nuevo | Presentar 2+ ejemplos de distinta superficie, misma estructura profunda | WDSL Ch4, MIS Ch6 |
 | Comunicar una dificultad o error | Enmarcar como proceso en desarrollo, nunca como techo de capacidad fijo | WDSL Ch8, MIS Ch7 |
+| Generar el frente de una flashcard | Información mínima, sin pistas de reconocimiento | Principios de diseño de flashcards |
+| Generar card de un concepto ya chequeado en la síntesis | Reformular el ángulo, nunca copiar el texto del chequeo | 2.1.2 + principios de flashcards |
 
 ## Umbrales y valores de referencia
 - Feedback punitivo → activa amenaza percibida → consume recursos cognitivos que deberían ir al contenido (no es "más estricto = más riguroso", es directamente contraproducente).
