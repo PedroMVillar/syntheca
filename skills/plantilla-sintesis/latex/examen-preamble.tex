@@ -1,0 +1,124 @@
+% ============================================================
+%  PLANTILLA DE EXAMEN DE PRUEBA — syntheca
+%  Clase ARTICLE (documento independiente, no un capítulo del
+%  libro de la materia — un examen de prueba se guarda aparte,
+%  en examenes-prueba/<materia>/).
+%
+%  Reutiliza la misma paleta y tipografía que la plantilla del
+%  libro (plantilla-syntheca-preamble.tex) para que la identidad
+%  visual sea consistente en todo lo que genera el sistema.
+%
+%  Diferencia clave de diseño respecto al libro: el entorno
+%  \pregunta NO muestra metadata (familia, tipo 6.a/6.b, etc.)
+%  — un examen de prueba tiene que verse como un examen real,
+%  no como un documento de estudio con etiquetas de trazabilidad.
+%  Esa trazabilidad vive en el nombre del archivo y en
+%  mapa-estudio.json, no en el PDF que el estudiante rinde.
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage[table]{xcolor}
+\usepackage{array}
+
+\geometry{
+    top=2.2cm,
+    bottom=2.2cm,
+    left=2.2cm,
+    right=2.2cm
+}
+
+\definecolor{textgray}{RGB}{60, 60, 60}
+\definecolor{rulegray}{RGB}{150, 150, 150}
+\color{textgray}
+
+% ---------- Metadatos editables por examen ----------
+\newcommand{\miNombre}{Nombre Apellido}
+\newcommand{\materiaActual}{Materia}
+\newcommand{\setMateria}[1]{\renewcommand{\materiaActual}{#1}}
+\newcommand{\nombreExamen}{Parcial de práctica}
+\newcommand{\setNombreExamen}[1]{\renewcommand{\nombreExamen}{#1}}
+\newcommand{\duracionExamen}{}
+\newif\ifhayduracion
+\hayduracionfalse
+\newcommand{\setDuracion}[1]{\renewcommand{\duracionExamen}{#1}\hayduraciontrue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\small\color{textgray}\thepage}
+\fancyfoot[R]{\footnotesize\color{textgray}\miNombre}
+\fancyfoot[L]{\footnotesize\color{textgray}\materiaActual}
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+
+% ---------- Encabezado del examen (no es \chapter — es un bloque
+% de portada simple, el examen es un documento corto) ----------
+\newcommand{\encabezadoExamen}{%
+  \begin{center}
+    {\fontsize{16}{19}\selectfont\bfseries\color{textgray} \MakeUppercase{\materiaActual}\par}
+    \vspace{2pt}
+    {\large\color{textgray} \nombreExamen \par}
+    \vspace{4pt}
+    {\color{rulegray}\rule{0.6\linewidth}{0.4pt}\par}
+    \vspace{6pt}
+    \ifhayduracion
+      {\footnotesize\itshape\color{rulegray} Duración sugerida: \duracionExamen \par}
+    \fi
+    \vspace{10pt}
+  \end{center}
+}
+
+% ---------- SECTION — se usa poco (a lo sumo para separar partes
+% del examen, ej. "Parte A" / "Parte B"), mismo estilo que el libro ----------
+\titleformat{\section}
+  {\centering\color{textgray}\fontsize{12}{14}\selectfont\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{2pt}\color{rulegray}\titlerule\vspace{4pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+% ============================================================
+%  ENTORNO \pregunta — la pieza central de esta plantilla.
+%  Numerado automático, SIN mostrar familia/tipo (a diferencia
+%  de \ejercicio del libro) — argumento opcional solo para puntaje,
+%  que es información legítima de un examen real.
+%  Uso: \begin{pregunta}[25 puntos] ... \end{pregunta}
+% ============================================================
+\newcounter{preguntaexamen}
+\newenvironment{pregunta}[1][]{%
+  \refstepcounter{preguntaexamen}%
+  \par\vspace{10pt}\noindent%
+  \textbf{\color{textgray}Ejercicio \arabic{preguntaexamen}.}%
+  \ifx&#1&\else\ {\footnotesize\itshape\color{rulegray}(#1)}\fi%
+  \par\vspace{4pt}%
+}{%
+  \vspace{4pt}
+}
+
+% ============================================================
+%  ENTORNO \resolucion — SOLO se usa en el documento de
+%  resolución (nunca en el de enunciado, para no arruinar el
+%  simulacro). Mismo criterio minimalista: una línea fina, sin caja.
+% ============================================================
+\newenvironment{resolucion}{%
+  \par\vspace{4pt}\noindent%
+  {\footnotesize\bfseries\color{rulegray}RESOLUCIÓN}\par%
+  \color{rulegray}\hrule\color{textgray}\vspace{4pt}%
+}{%
+  \vspace{2pt}
+}
+
+\usepackage{ifthen}
