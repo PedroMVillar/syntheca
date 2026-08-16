@@ -194,7 +194,7 @@ Esta separación es deliberada: lo que hace valioso al repo (la pedagogía, la o
 - [x] Los 7 agentes + 7 comandos + quality gate
 - [x] Plantilla LaTeX (clase `book`, entornos custom, compilada y verificada)
 - [ ] Fusionar *Understanding by Design* (Wiggins & McTighe) a `pedagogia-cognitiva` — fuente grande, pendiente por tamaño
-- [ ] Formalizar la carga de cronograma/temario como comando (`/cargar-programa`), hoy es un flujo manual
+- [x] `/cargar-programa` — carga temas y agrupación por examen desde el cronograma
 - [ ] Diagramas progresivos vs. estáticos — regla pendiente de fuente adicional
 - [ ] Explorar repetición espaciada real entre sesiones (más allá del interleaving intra-documento)
 - [ ] Generación de exámenes de prueba — parciales nuevos, con la misma estructura y curva de dificultad que los reales (vía `skills/banco-ejercicios/`), pero con contenido inédito para practicar en condiciones simuladas
