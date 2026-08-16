@@ -22,6 +22,10 @@ examenes-prueba/*
 mapas-mentales/*
 !mapas-mentales/.gitkeep
 
+# --- Flashcards generadas (personal) ---
+flashcards/*
+!flashcards/.gitkeep
+
 # --- Herramientas configuradas (pueden tener datos de tu setup) ---
 skills/herramientas/*
 !skills/herramientas/.gitkeep
