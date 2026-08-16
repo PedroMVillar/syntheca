@@ -1,0 +1,81 @@
+% ============================================================
+%  PLANTILLA DE MAPA MENTAL — syntheca
+%  Clase STANDALONE/ARTICLE, usa la librería `mindmap` de TikZ
+%  (distribución radial automática, no hay que calcular ángulos
+%  a mano por nodo).
+%
+%  Filosofía de color, distinta al resto del sistema: acá SÍ se
+%  usa color para diferenciar ramas (familias de conceptos) —
+%  no es decoración, es una ayuda de codificación dual (dual
+%  coding) para la memoria, la misma lógica por la que
+%  pedagogia-cognitiva permite diagramas cuando cumplen una
+%  función real. La paleta es apagada/profesional, nunca
+%  saturada — mantiene el mismo espíritu sobrio del resto.
+%
+%  REGENERACIÓN COMPLETA: a diferencia del libro (que acumula
+%  capítulos), este archivo se reescribe ENTERO cada vez que
+%  generador-mapa-mental corre — nunca se edita a mano un nodo
+%  suelto. La fuente de verdad es mapa-estudio.json, no el .tex.
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,backgrounds}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\geometry{top=1.2cm, bottom=1.2cm, left=1cm, right=1cm, landscape}
+
+\definecolor{textgray}{RGB}{60, 60, 60}
+\definecolor{rulegray}{RGB}{150, 150, 150}
+
+% ---------- Paleta de ramas — apagada, profesional, máximo 6 colores.
+% Si un examen tiene más de 6 familias, se reciclan en orden. ----------
+\definecolor{ramaUno}{RGB}{91, 110, 130}    % azul-gris apagado
+\definecolor{ramaDos}{RGB}{120, 100, 90}    % marrón-gris apagado
+\definecolor{ramaTres}{RGB}{95, 120, 100}   % verde-gris apagado
+\definecolor{ramaCuatro}{RGB}{115, 95, 120} % violeta-gris apagado
+\definecolor{ramaCinco}{RGB}{130, 110, 80}  % ocre apagado
+\definecolor{ramaSeis}{RGB}{90, 115, 120}   % teal-gris apagado
+
+\newcommand{\miNombre}{Nombre Apellido}
+\newcommand{\materiaActual}{Materia}
+\newcommand{\setMateria}[1]{\renewcommand{\materiaActual}{#1}}
+\newcommand{\nombreMapa}{Mapa mental}
+\newcommand{\setNombreMapa}[1]{\renewcommand{\nombreMapa}{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\small\color{textgray}\thepage}
+\fancyfoot[R]{\footnotesize\color{textgray}\miNombre}
+\fancyfoot[L]{\footnotesize\color{textgray}\materiaActual}
+
+% ---------- Estilo base de los conceptos (nodos) ----------
+% Nivel raíz: el examen/tema central.
+% Nivel 1: familias de conceptos (ramas, coloreadas).
+% Nivel 2: conceptos individuales (hojas, color heredado de su rama).
+\tikzstyle{every node}=[font=\sffamily]
+\tikzset{
+  root concept/.style={
+    concept color=textgray,
+    font=\sffamily\bfseries\Large,
+    text=white,
+    minimum size=3.2cm,
+  },
+  level 1 concept/.append style={
+    font=\sffamily\bfseries\small,
+    text=white,
+    sibling angle=90,
+    level distance=4.6cm,
+    minimum size=2.1cm,
+  },
+  level 2 concept/.append style={
+    font=\sffamily\scriptsize,
+    text=white,
+    sibling angle=45,
+    level distance=2.6cm,
+    minimum size=1.5cm,
+  },
+}
