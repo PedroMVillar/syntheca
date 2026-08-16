@@ -33,6 +33,7 @@ def load_state(path: str) -> dict:
             "secuencia_sugerida": [],
             "conceptos_ya_cubiertos": [],
             "version_perfil_usada": None,
+            "examenes_programados": [],
         }
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -75,9 +76,15 @@ def main():
         default=None,
         help="JSON list de strings — carga inicial de temas_pendientes desde el programa de la materia, sin registrar síntesis",
     )
+    parser.add_argument(
+        "--seed-examenes-programados",
+        default=None,
+        help='JSON list de objetos {"nombre","fecha","temas"} — qué temas entran en cada parcial/final, según el programa',
+    )
     args = parser.parse_args()
 
     state = load_state(args.path)
+    hizo_algo = False
 
     if args.seed_temas_pendientes:
         try:
@@ -86,10 +93,26 @@ def main():
             for t in nuevos_temas:
                 if t not in existentes:
                     state.setdefault("temas_pendientes", []).append(t)
-            save_state(args.path, state)
             print(f"✅ {len(nuevos_temas)} tema(s) del programa cargados en temas_pendientes.")
+            hizo_algo = True
         except json.JSONDecodeError:
             print("⚠️  --seed-temas-pendientes no es JSON válido.", file=sys.stderr)
+
+    if args.seed_examenes_programados:
+        try:
+            nuevos_examenes = json.loads(args.seed_examenes_programados)
+            state.setdefault("examenes_programados", [])
+            nombres_existentes = {e["nombre"] for e in state["examenes_programados"]}
+            for e in nuevos_examenes:
+                if e["nombre"] not in nombres_existentes:
+                    state["examenes_programados"].append(e)
+            print(f"✅ {len(nuevos_examenes)} examen(es) programados cargados.")
+            hizo_algo = True
+        except (json.JSONDecodeError, KeyError):
+            print("⚠️  --seed-examenes-programados no es JSON válido o falta 'nombre'.", file=sys.stderr)
+
+    if hizo_algo:
+        save_state(args.path, state)
         return
 
     if not args.tema:
