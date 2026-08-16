@@ -49,19 +49,19 @@ Ejemplos concretos de reglas que esto produce, con nombre y apellido:
 ## ⚙️ Cómo funciona — arquitectura en 5 capas + pipeline de agentes
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  skills/pedagogia-cognitiva/   → CÓMO enseñar (universal,        │
+┌───────────────────────────────────────────────────────────────────┐
+│  skills/pedagogia-cognitiva/   → CÓMO enseñar (universal,         │
 │                                    compartida entre TODAS         │
 │                                    tus materias)                  │
-│  skills/perfil-academico/      → QUIÉN sos vos como lector       │
+│  skills/perfil-academico/      → QUIÉN sos vos como lector        │
 │                                    (4 dimensiones, 12 campos)     │
 │  skills/fuentes/                → TUS libros y papers, uno        │
-│                                    por fuente, sin fusionar        │
+│                                    por fuente, sin fusionar       │
 │  skills/herramientas/           → OPCIONAL: simulador / lenguaje  │
-│                                    / diagrama de arquitectura      │
+│                                    / diagrama de arquitectura     │
 │  skills/banco-ejercicios/       → OPCIONAL: tus TPs, parciales    │
-│                                    y finales reales                │
-└─────────────────────────────────────────────────────────────────┘
+│                                    y finales reales               │
+└───────────────────────────────────────────────────────────────────┘
                               │
                               ▼
         /generar-sintesis "<tema>" --materia X --fuentes a,b
