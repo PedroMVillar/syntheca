@@ -1,0 +1,86 @@
+---
+name: perfil-academico
+description: "Ficha de perfil del usuario — 4 dimensiones, 12 campos. Consultar SIEMPRE desde calibrador-perfil antes de calibrar una síntesis. TEMPLATE SIN COMPLETAR — correr /setup-perfil para llenarlo."
+---
+
+# Perfil Académico
+
+> ⚠️ **Este archivo es un template vacío.** Corré `/setup-perfil` para completarlo con tus datos reales. Hasta entonces, `calibrador-perfil` va a tratar cualquier tema como "conocimiento previo desconocido" (nunca como cero ni como experto).
+
+**Última edición**: (sin completar) — este campo se actualiza cada vez que se edita el perfil, y `calibrador-perfil` lo compara contra `mapa-estudio.json → version_perfil_usada` para detectar síntesis desactualizadas.
+
+---
+
+## Dimensión 1 — Capa Exterior (competencias explícitas)
+
+### 1. Formación de base e identidad académica/profesional
+*Carrera, área de especialidad o materias clave que ya dominás.*
+`[completar]`
+
+### 2. Nivel de formalismo/rigor matemático cómodo
+*El grado de abstracción matemática con el que operás sin fatiga cognitiva.*
+`[completar]`
+
+### 3. Idiomas de decodificación y manejo de jerga
+*Lenguas en las que consumís literatura técnica de forma fluida.*
+`[completar]`
+
+---
+
+## Dimensión 2 — Capa Interior (estructura cognitiva y motivación)
+
+### 4. Sistema de anclajes y analogías preferidas
+*¿Analogías físicas, lógicas de código, procesos cotidianos? Alimenta directo el tono de metáfora del redactor-pedagogico.*
+`[completar]`
+
+### 5. Autoconcepto y actitud frente al error (mindset)
+*Tu disposición ante desafíos difíciles. Calibra cuánta guía socrática hace falta para no disparar ansiedad.*
+`[completar]`
+
+### 6. Brechas de conocimiento identificadas (metacognición activa)
+*Qué vacíos reconocés conscientemente vos mismo.*
+`[completar]`
+
+### 7. Valores y creencias rectoras (propósito e identidad)
+*Qué considerás valioso en la disciplina — elegancia matemática, utilidad práctica, simplicidad de diseño. Define qué oración temática usar.*
+`[completar]`
+
+---
+
+## Dimensión 3 — Mapa de Obstáculos (barreras que el documento debe demoler)
+
+### 8. Obstáculo de Cognición Funcional (¿qué resuelve?)
+*¿Solés memorizar conceptos sin entender qué problema real resuelven?*
+`[completar]`
+
+### 9. Obstáculo de Ventaja (¿por qué esta solución?)
+*¿Te cuesta ver por qué un método es superior a otras alternativas conocidas?*
+`[completar]`
+
+### 10. Obstáculo de Relevancia (¿para qué me sirve?)
+*¿Te cuesta conectar el tema con tu carrera/proyectos reales?*
+`[completar]`
+
+---
+
+## Dimensión 4 — Directivas de Secuenciación (por tema/familia, NO un valor global)
+
+### 11. Nivel de andamiaje y progresión (fading) — por tema/familia
+*No completar un único nivel general. Agregar una entrada por cada tema/familia donde ya tengas noción de tu nivel:*
+
+| Tema/Familia | Nivel actual | Última actualización |
+|---|---|---|
+| `[ej: circuitos digitales]` | `[ej: post-umbral, competencia intermedia]` | `[fecha]` |
+| `[completar más filas a medida que generás síntesis]` | | |
+
+### 12. Estrategia de intercalado y espaciado preferida
+*Preferencias generales sobre cómo mezclar temas previos en las guías de problemas.*
+`[completar]`
+
+---
+
+## Notas de uso para `calibrador-perfil`
+
+- Los campos 11 (por tema/familia) son la única fuente de verdad para decidir el umbral pre/post-expertise de una síntesis puntual — nunca inferir un nivel "general" de la Dimensión 1.
+- Si un tema no tiene fila en el campo 11, tratarlo como "sin diagnosticar" — no asumir novato ni experto.
+- El campo 6 (brechas identificadas) tiene prioridad sobre cualquier inferencia automática — si el usuario dice explícitamente que tiene un hueco, confiar en eso antes que en cualquier heurística.

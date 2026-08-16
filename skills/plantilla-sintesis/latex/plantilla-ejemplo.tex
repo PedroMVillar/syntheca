@@ -1,0 +1,77 @@
+\documentclass[11pt,openany]{book}
+\input{plantilla-syntheca-preamble.tex}
+
+\setMateria{Comunicaciones Digitales}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{4cm}
+  {\fontsize{22}{26}\selectfont\bfseries\color{textgray} \materiaActual \par}
+  \vspace{0.5cm}
+  {\large\color{rulegray}\rule{0.85\linewidth}{0.4pt}\par}
+  \vspace{1cm}
+  {\large\color{textgray} Síntesis teórica personal \par}
+\end{titlepage}
+
+\tableofcontents
+
+\temacapitulo{Decodificadores convolucionales}
+
+\section{Motivación}
+\begin{motivacion}
+Estás diseñando un enlace de comunicación y el canal tiene ruido — algunos bits van a llegar mal sí o sí. La pregunta no es cómo evitar el error, es cómo diseñar un código que te permita reconstruir el mensaje original aunque una parte de él llegue corrompida.
+\end{motivacion}
+
+Este es exactamente el problema que resuelven los códigos convolucionales: agregar redundancia estructurada para poder decodificar incluso con errores de transmisión.
+
+\section{Mapa de fuentes}
+Lin \& Costello desarrollan el formalismo algebraico completo del código convolucional. El paper original de Viterbi (1967) aporta el algoritmo de decodificación específico. Ambas fuentes usan notación compatible, sin contradicciones de fondo detectadas para este tema.
+
+\section{Marco teórico}
+
+\begin{bloque}[Fuente: Lin \& Costello]{Polinomio generador}
+Un código convolucional se define mediante polinomios generadores $g_1(x), g_2(x), \ldots$ que determinan cómo se combinan los bits de entrada con la memoria del codificador para producir la salida codificada.
+\end{bloque}
+
+\begin{chequeo}
+\item ¿Qué pasa con la tasa de código si agregás un polinomio generador más?
+\item ¿Por qué la memoria del codificador afecta la distancia libre del código?
+\end{chequeo}
+
+\begin{bloque}[Fuente: Viterbi, 1967]{Algoritmo de Viterbi}
+Un algoritmo de programación dinámica que encuentra el camino de máxima verosimilitud a través del diagrama de trellis del código, sin necesidad de evaluar todos los caminos posibles explícitamente.
+\end{bloque}
+
+\begin{chequeo}
+\item ¿Por qué el algoritmo de Viterbi es más eficiente que fuerza bruta sobre todos los caminos del trellis?
+\end{chequeo}
+
+\section{Ejemplo resuelto}
+
+\begin{ejemplo}[completo]
+Dado un codificador con polinomios generadores $g_1 = 111$, $g_2 = 101$, y una secuencia de entrada $u = 1011$, calculamos la salida codificada paso a paso combinando cada bit de entrada con la memoria actual del registro de desplazamiento.
+\end{ejemplo}
+
+\begin{ejemplo}[parcial]
+Con el mismo codificador, la entrada $u = 1101$ produce una salida codificada donde los primeros 3 pares de bits son $(1,1), (0,1), (1,0)$ — completá el último par aplicando el mismo procedimiento.
+\end{ejemplo}
+
+\section{Errores comunes}
+\begin{erroresComunes}
+  \item Confundir la tasa de código con la distancia libre — son propiedades distintas del mismo código.
+  \item Asumir que más memoria siempre implica mejor corrección de errores sin considerar el costo computacional del decodificador.
+\end{erroresComunes}
+
+\section{Ejercicios}
+
+\begin{ejercicio}[decodificación de secuencias]{6.a — bloque}
+Calculá la salida codificada para el codificador $g_1=111, g_2=101$ con entrada $u=0110$.
+\end{ejercicio}
+
+\begin{ejercicio}[decodificación de secuencias]{6.b — intercalado}
+Mezclando con distancia de Hamming (tema previo): dadas dos secuencias codificadas candidatas, determiná cuál está más cerca de la recibida usando distancia de Hamming, y after explicá por qué el algoritmo de Viterbi hace ese mismo cálculo de forma más eficiente.
+\end{ejercicio}
+
+\end{document}

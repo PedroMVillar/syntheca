@@ -1,0 +1,28 @@
+\documentclass[11pt,openany]{book}
+\input{plantilla-syntheca-preamble.tex}
+
+\setMateria{Materia}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{4cm}
+  {\fontsize{22}{26}\selectfont\bfseries\color{textgray} \materiaActual \par}
+  \vspace{0.5cm}
+  {\large\color{rulegray}\rule{0.85\linewidth}{0.4pt}\par}
+  \vspace{1cm}
+  {\large\color{textgray} Síntesis teórica personal \par}
+  \vspace{0.3cm}
+  {\normalsize\color{rulegray} \miNombre \par}
+\end{titlepage}
+
+\tableofcontents
+
+% ============================================================
+% A partir de acá, un \chapter por cada tema generado por
+% /generar-sintesis. Ver plantilla-ejemplo.tex para un capítulo
+% de muestra completo con los 8 pasos y todos los entornos en uso.
+% ============================================================
+
+\end{document}

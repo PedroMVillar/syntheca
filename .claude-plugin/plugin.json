@@ -1,0 +1,10 @@
+{
+  "name": "syntheca",
+  "version": "0.1.0",
+  "description": "Sistema para generar síntesis teóricas personalizadas (apuntes propios) a partir de tus libros, papers, TPs y parciales, calibradas a tu perfil académico y aplicando principios reales de neurociencia del aprendizaje.",
+  "author": {
+    "name": "PedroMVillar"
+  },
+  "license": "MIT",
+  "keywords": ["educacion", "aprendizaje", "sintesis-teorica", "estudio", "pedagogia"]
+}

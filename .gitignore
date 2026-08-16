@@ -1,0 +1,53 @@
+# ============================================================
+# apunte-forge — .gitignore
+#
+# Este repo distribuye el PLUGIN (el motor). Todo lo que generás
+# usándolo — tu perfil, tus fuentes, tus parciales, tus síntesis —
+# es DATO PERSONAL y no debería vivir en un repo público, tanto por
+# privacidad como por derechos de autor de tus materiales de cátedra.
+# ============================================================
+
+# --- Tu perfil académico real (el template SÍ se versiona) ---
+skills/perfil-academico/SKILL.md
+
+# --- Fuentes ingestadas (libros/papers de tu bibliografía) ---
+skills/fuentes/*
+!skills/fuentes/.gitkeep
+
+# --- Herramientas configuradas (pueden tener datos de tu setup) ---
+skills/herramientas/*
+!skills/herramientas/.gitkeep
+
+# --- Bancos de ejercicios (tus TPs/parciales/finales reales) ---
+skills/banco-ejercicios/*
+!skills/banco-ejercicios/.gitkeep
+
+# --- Estado acumulado de tu estudio ---
+mapa-estudio.json
+
+# --- Síntesis generadas (tu apunte final, personal) ---
+sintesis/*
+!sintesis/.gitkeep
+
+# --- Carpeta de trabajo temporal para ingestas ---
+_inbox/*
+!_inbox/.gitkeep
+
+# --- Auxiliares de compilación LaTeX ---
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
+_work/

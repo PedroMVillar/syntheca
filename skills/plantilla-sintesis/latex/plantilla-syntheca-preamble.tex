@@ -1,0 +1,204 @@
+% ============================================================
+%  PLANTILLA APUNTE-FORGE — adaptada de la plantilla minimalista
+%  del usuario (article) a clase BOOK.
+%
+%  Decisión de diseño: cada TEMA generado por /generar-sintesis es
+%  un \chapter. Con el tiempo, una misma materia acumula capítulos
+%  y el documento se convierte literalmente en tu propio libro de
+%  esa materia — no hace falta un documento nuevo por tema.
+%
+%  Mismo criterio estético que la plantilla original: gris oscuro
+%  (no negro puro), títulos centrados en mayúsculas con línea
+%  divisoria, márgenes estrechos, sin decoración innecesaria.
+%  Los entornos nuevos (bloque, ejemplo, chequeo, ejercicio) usan
+%  el mismo principio de minimalismo visual que rige todo el
+%  contenido: una sola línea fina para separar, nunca cajas
+%  pesadas ni colores de fondo — la separación es funcional
+%  (distingue teoría / práctica / autoevaluación), no decorativa.
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% NOTA: se remueve babel[spanish] por el mismo motivo que la
+% plantilla original — el paquete de hifenación en español no está
+% instalado en este entorno de compilación. Se renombran a mano los
+% términos que babel normalmente traduciría (ver más abajo).
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{mdframed}
+
+\geometry{
+    top=2cm,
+    bottom=2.2cm,
+    left=2cm,
+    right=2cm
+}
+
+% ---------- Colores (idénticos a la plantilla original) ----------
+\definecolor{textgray}{RGB}{60, 60, 60}
+\definecolor{rulegray}{RGB}{150, 150, 150}
+\color{textgray}
+
+% ---------- Metadatos editables por síntesis ----------
+\newcommand{\miNombre}{Nombre Apellido}      % quién estudia (footer)
+\newcommand{\materiaActual}{Materia}          % se resetea por materia
+\newcommand{\setMateria}[1]{\renewcommand{\materiaActual}{#1}}
+
+% ---------- Header / Footer (igual que el original) ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\small\color{textgray}\thepage}
+\fancyfoot[R]{\footnotesize\color{textgray}\miNombre}
+\fancyfoot[L]{\footnotesize\color{textgray}\materiaActual}
+
+% ---------- Traducciones manuales (sin babel) ----------
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\contentsname}{Índice}
+\newcommand{\ok}{\checkmark}
+
+% ============================================================
+%  CAPÍTULO = TEMA. Mismo criterio visual que \section en la
+%  plantilla original (centrado, mayúsculas, línea fina), pero un
+%  punto más grande porque es el nivel jerárquico superior acá.
+% ============================================================
+\titleformat{\chapter}
+  {\centering\color{textgray}\fontsize{18}{21}\selectfont\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{3pt}\color{rulegray}\titlerule\vspace{6pt}]
+\titlespacing*{\chapter}{0pt}{0pt}{18pt}
+% NOTA: a diferencia de \section (donde redefinir el comando funciona sin
+% problema), redefinir \chapter directamente rompe el mecanismo interno de
+% \tableofcontents en la clase book (corrompe la entrada de TOC). En vez de
+% eso, se usa un comando auxiliar explícito: \temacapitulo{<Tema>} en lugar
+% de \chapter{<Tema>} directo.
+\newcommand{\temacapitulo}[1]{\chapter{\MakeUppercase{#1}}}
+
+% ============================================================
+%  SECTION = cada uno de los 8 pasos de la plantilla pedagógica
+%  (1. Motivación, 2. Mapa de fuentes, ... 8. Ejercicio guiado).
+%  Formato idéntico al de la plantilla original.
+% ============================================================
+\titleformat{\section}
+  {\centering\color{textgray}\fontsize{13}{15}\selectfont\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{2pt}\color{rulegray}\titlerule\vspace{4pt}]
+\titlespacing*{\section}{0pt}{18pt}{6pt}
+\let\oldsection\section
+\renewcommand{\section}[1]{\oldsection{\MakeUppercase{#1}}}
+
+% ============================================================
+%  SUBSECTION = micro-bloques dentro de "3. Marco teórico"
+%  (3.a definición, 3.b prompt generativo — 3.c usa el entorno
+%  \chequeo, no subsection, porque necesita numeración propia).
+% ============================================================
+\titleformat{\subsection}
+  {\color{textgray}\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+
+% ============================================================
+%  ENTORNOS CUSTOM — uno por cada pieza funcional de la
+%  plantilla pedagógica. Numerados por capítulo (=por tema).
+% ============================================================
+
+\theoremstyle{definition}
+\newtheorem{bloqueteorico}{Bloque}[chapter]
+% Paso 3.a — Definición/fórmula del bloque, con notación de la fuente.
+% Uso: \begin{bloque}[Fuente: Lin \& Costello]{Distancia de Hamming} ... \end{bloque}
+\newenvironment{bloque}[2][]{%
+  \bloqueteorico%
+  \noindent\textbf{\color{textgray}#2}%
+  \ifx&#1&\else\ {\footnotesize\color{rulegray}(#1)}\fi%
+  \par\vspace{2pt}\color{rulegray}\hrule\color{textgray}\vspace{4pt}%
+}{%
+  \vspace{4pt}
+}
+
+\theoremstyle{plain}
+\newtheorem{ejemploresueltoct}{Ejemplo resuelto}[chapter]
+% Paso 4 — Ejemplo resuelto. Argumento opcional: "completo" | "parcial"
+% (alternar entre ambos formatos por regla de pedagogia-cognitiva).
+\newenvironment{ejemplo}[1][completo]{%
+  \ejemploresueltoct%
+  \ifthenelse{\equal{#1}{parcial}}%
+    {\ {\footnotesize\itshape\color{rulegray}(parcial — completá el paso final)}}%
+    {}%
+  \par\vspace{2pt}\color{rulegray}\hrule\color{textgray}\vspace{4pt}%
+}{%
+  \vspace{4pt}
+}
+
+% Paso 3.c — Chequeo de comprensión (adjunct questions). Va INMEDIATAMENTE
+% después de cada bloque teórico, nunca concentrado al final del capítulo.
+\newmdenv[
+  linecolor=rulegray,
+  linewidth=0.4pt,
+  topline=true,
+  bottomline=true,
+  leftline=false,
+  rightline=false,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{chequeobox}
+\newenvironment{chequeo}{%
+  \begin{chequeobox}%
+  {\footnotesize\bfseries\color{rulegray} CHEQUEO RÁPIDO}\par\vspace{2pt}%
+  \begin{enumerate}[leftmargin=1.4em, itemsep=2pt, label=\arabic*.]
+}{%
+  \end{enumerate}
+  \end{chequeobox}
+}
+
+% Paso 6.a / 6.b — Ejercicios. Argumentos: tipo (bloque|intercalado) y
+% familia, para que quede trazable contra mapa-estudio.json a simple vista.
+\newtheorem{ejerciciocount}{Ejercicio}[chapter]
+\newenvironment{ejercicio}[2][]{%
+  \ejerciciocount%
+  \ifx&#2&\else\ {\footnotesize\color{rulegray}[#2]}\fi%
+  \ifx&#1&\else\ {\footnotesize\itshape\color{rulegray}— familia: #1}\fi%
+  \par\vspace{2pt}
+}{%
+  \vspace{6pt}
+}
+
+% Paso 5 — Errores comunes. Lista simple, sin caja (el tono neutro va
+% en el TEXTO, no en la decoración — coherente con minimalismo visual).
+\newenvironment{erroresComunes}{%
+  \begin{itemize}[leftmargin=1.4em, itemsep=4pt, label={\color{rulegray}\textbullet}]
+}{%
+  \end{itemize}
+}
+
+% Paso 1 — Motivación. Estilo narrativo en primera persona, apertura
+% con oración temática (itálica, con leve sangría) antes del cuerpo.
+\newenvironment{motivacion}{%
+  \begin{quote}
+  \itshape\color{textgray}
+}{%
+  \end{quote}
+}
+
+% Necesario para el \ifthenelse de \ejemplo
+\usepackage{ifthen}
+
