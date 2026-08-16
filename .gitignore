@@ -18,6 +18,10 @@ skills/fuentes/*
 examenes-prueba/*
 !examenes-prueba/.gitkeep
 
+# --- Mapas mentales generados (personal) ---
+mapas-mentales/*
+!mapas-mentales/.gitkeep
+
 # --- Herramientas configuradas (pueden tener datos de tu setup) ---
 skills/herramientas/*
 !skills/herramientas/.gitkeep
