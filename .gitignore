@@ -14,6 +14,10 @@ skills/perfil-academico/SKILL.md
 skills/fuentes/*
 !skills/fuentes/.gitkeep
 
+# --- Exámenes de prueba generados (personal) ---
+examenes-prueba/*
+!examenes-prueba/.gitkeep
+
 # --- Herramientas configuradas (pueden tener datos de tu setup) ---
 skills/herramientas/*
 !skills/herramientas/.gitkeep
