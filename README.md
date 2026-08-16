@@ -197,7 +197,7 @@ Esta separación es deliberada: lo que hace valioso al repo (la pedagogía, la o
 - [x] `/cargar-programa` — carga temas y agrupación por examen desde el cronograma
 - [ ] Diagramas progresivos vs. estáticos — regla pendiente de fuente adicional
 - [ ] Explorar repetición espaciada real entre sesiones (más allá del interleaving intra-documento)
-- [ ] Generación de exámenes de prueba — parciales nuevos, con la misma estructura y curva de dificultad que los reales (vía `skills/banco-ejercicios/`), pero con contenido inédito para practicar en condiciones simuladas
+- [x] Generación de exámenes de prueba — parciales nuevos, con la misma estructura y curva de dificultad que los reales (vía `skills/banco-ejercicios/`), pero con contenido inédito para practicar en condiciones simuladas
 - [ ] Mismo mecanismo para finales — exámenes de prueba integradores que combinan varias unidades del programa, siguiendo el patrón de `--tipo final`
 - [ ] Mapas mentales por parcial — a partir de los temas que cubre cada parcial (ya identificables por el cronograma), generar un mapa de conexiones entre conceptos como herramienta de repaso visual, no como reemplazo de la síntesis textual
 - [ ] Quizzes de opción múltiple — modo de autoevaluación rápida adicional al testing effect ya incrustado en cada síntesis (adjunct questions), pensado para repaso spaced/on-demand más que para el documento en sí
