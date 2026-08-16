@@ -84,3 +84,13 @@
 **Cuándo usar**: al presentar un concepto abstracto a través de ejemplos concretos.
 **Cómo**: presentar al menos dos ejemplos con distinto contexto (superficie) pero la misma estructura de solución (profundidad), señalando explícitamente qué comparten — nunca un solo ejemplo aislado.
 **Trade-offs**: un solo ejemplo, por bueno que sea, arriesga que el lector memorice el caso concreto sin extraer el patrón transferible (WDSL Ch4, confirmado por MIS Ch6).
+
+## Frente de flashcard con información mínima
+**Cuándo usar**: al generar cualquier card nueva desde `conceptos_ya_cubiertos`.
+**Cómo**: el frente es un estímulo único (pregunta o término), sin pistas adicionales que permitan reconocimiento en vez de recuperación. El dorso es la respuesta exacta, sin ambigüedad.
+**Trade-offs**: un frente "más fácil" (con pistas) se siente mejor al estudiar pero reduce el esfuerzo de recuperación — y por lo tanto la retención — igual que sucede con el andamiaje excesivo en un ejemplo resuelto.
+
+## No reciclar el texto de un chequeo ya incrustado
+**Cuándo usar**: siempre que se genere una card sobre un concepto que ya tuvo un micro-chequeo (3.c) en la síntesis.
+**Cómo**: reformular el ángulo de la pregunta — mismo concepto, otro contexto o forma de preguntar.
+**Trade-offs**: reciclar el texto exacto convierte la segunda exposición en memorización de la pregunta puntual, no en recuperación del concepto — pierde el efecto que la repetición espaciada busca generar.
