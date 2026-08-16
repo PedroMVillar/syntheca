@@ -79,6 +79,14 @@ Muestra síntesis generadas, temas pendientes, y conceptos ya cubiertos por fami
 
 Vuelve a correr solo el gate de calidad, sin re-conciliar fuentes ni re-calibrar perfil — útil si tocaste el documento vos mismo después de generarlo.
 
+## 9. Flashcards — generación automática y protocolo de uso
+
+Se generan solas al cerrar cada síntesis (`generador-flashcards`, parte del pipeline de `/generar-sintesis`) — no hay comando manual que correr.
+
+**Regla de diseño que las hace efectivas (no solo el formato):** el frente siempre tiene información mínima — nunca pistas de reconocimiento — y nunca repite el texto exacto de un chequeo ya incrustado en la síntesis; si el mismo concepto ya generó una pregunta de autoevaluación al leerlo, la card busca un ángulo distinto.
+
+**El repaso en sí no lo hace el plugin** — lo hace la herramienta a la que importés el `.tsv` (recomendado: Anki). Ver la sección correspondiente del [README](../README.md#-flashcards--cómo-usarlas-bien-no-solo-cómo-importarlas) para la configuración recomendada — el "Learning Steps" mal configurado es el error más común que anula el efecto de sobreaprendizaje.
+
 ## Preguntas frecuentes
 
 **¿Necesito reportarle al sistema cómo me fue en cada ejercicio?**
