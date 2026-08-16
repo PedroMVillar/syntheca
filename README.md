@@ -113,6 +113,29 @@ Entornos LaTeX custom incluidos — `bloque`, `ejemplo[completo|parcial]`, `cheq
 
 ---
 
+## 🃏 Flashcards — cómo usarlas bien, no solo cómo importarlas
+
+Cada síntesis que generás agrega cards nuevas a `flashcards/<materia>.tsv` — formato de texto separado por tabs (`frente`, `dorso`, `tags`), sin dependencias, importable en Anki, Quizlet, Mochi o una hoja de cálculo.
+
+**Para importar en Anki:** Archivo → Importar → elegís el `.tsv` → tipo de nota "Básica" → separador "Tab" → confirmás el mapeo de columnas (frente, dorso, etiquetas).
+
+**Configuración recomendada (Herramientas → Administrar notas → Opciones del mazo), para que el repaso funcione como está pensado, no con los defaults genéricos:**
+
+| Opción | Valor sugerido | Por qué |
+|---|---|---|
+| Learning steps | `10m 1d` (mínimo 2 pasos) | Sin esto no hay sobreaprendizaje real — con un solo paso, "acertaste una vez" ya gradúa la card |
+| Graduating interval | 1-3 días | Evita que una card recién aprendida se posponga demasiado rápido |
+| New cards/day | 15-25 | Ritmo sostenible — más que esto por día compite con la calidad del esfuerzo de recuperación |
+| Botones al repasar | Usar solo "Again" y "Good" | "Easy" salta el sobreaprendizaje; "Hard" en la práctica aporta poco |
+
+**No sirve de nada bien configurado si:**
+- Repasás todo el mazo en una sola sesión maratónica antes del examen — el espaciado entre sesiones es lo que genera el efecto, no la cantidad de repasos en un día.
+- Usás "Easy" para ir más rápido — reduce exactamente el sobreaprendizaje que hace efectiva la técnica.
+
+Podés filtrar por examen usando el tag `examen::<nombre>` (ej. buscar `tag:examen::parcial-1` en Anki) para repasar solo lo de un parcial puntual.
+
+---
+
 ## 🚀 Instalación
 
 ```bash
