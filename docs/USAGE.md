@@ -21,14 +21,11 @@ Se completa una vez, con las 4 dimensiones (competencias, motivación/anclajes, 
 
 ## 2. Cronograma/temario de la materia (opcional pero recomendado)
 
-Todavía no existe un comando dedicado para esto (ver Roadmap) — el flujo manual es pasarle el cronograma a Claude y pedirle que puebla `temas_pendientes`:
-
-```bash
-python3 scripts/update_mapa_estudio.py --materia <slug> \
-  --seed-temas-pendientes '["Tema 1", "Tema 2", "..."]'
+```
+/cargar-programa <materia>
 ```
 
-Esto no genera nada — solo deja la hoja de ruta cargada para que `/mapa-estudio` y el interleaving tengan de dónde tirar.
+Pegá o adjuntá el cronograma en el mismo mensaje. El comando extrae los temas y, si el programa especifica qué temas entran en cada parcial/final, también carga esa agrupación (útil más adelante para generar exámenes de prueba). Te muestra la lista extraída antes de guardar nada — confirmá antes de que se aplique.
 
 ## 3. Bibliografía — un comando por fuente
 
