@@ -107,3 +107,16 @@ Vive en `skills/plantilla-sintesis/latex/`:
 - Portada con más metadata (fecha de generación, fuentes usadas) si se quiere.
 - Índice de términos (glosario) al final del documento, alimentado desde `mapeo-conceptos.md`/glosarios de las fuentes.
 - Bibliografía formal (`biblatex`) si las fuentes lo ameritan — por ahora la atribución vive en el "Mapa de fuentes" de cada capítulo, no en bibliografía aparte.
+
+## Formato de examen de práctica (independiente del formato de capítulo)
+
+Un examen de prueba (`/generar-examen-prueba`) **no usa la plantilla de 8 pasos** de arriba — es un documento distinto, más corto, sin motivación/chequeos/GLT incrustado, porque tiene que sentirse como un examen real, no como material de estudio.
+
+Vive en `skills/plantilla-sintesis/latex/examen-preamble.tex` — clase `article`, misma paleta que el libro, con:
+- `\encabezadoExamen` — portada simple (materia, nombre del examen, duración opcional).
+- Entorno `\pregunta[puntaje]` — numerado automático, SIN mostrar familia/tipo (a diferencia de `\ejercicio` del libro) — un examen real no muestra su propia trazabilidad interna.
+- Entorno `\resolucion` — SOLO en el documento de resolución, nunca en el de enunciado.
+
+**Regla dura de generación**: enunciado y resolución son SIEMPRE dos archivos `.tex`/`.pdf` separados. Nunca un solo documento con la resolución oculta o al final — mezcla el riesgo de que el estudiante la vea sin querer.
+
+Ver `examen-ejemplo-enunciado.tex` y `examen-ejemplo-resolucion.tex` para un caso completo compilado.
