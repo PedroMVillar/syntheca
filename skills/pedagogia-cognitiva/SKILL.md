@@ -65,6 +65,18 @@ description: "Base de conocimiento consolidada sobre cómo diseñar y redactar m
 - **Simetría cognitiva redactor-lector** (WDSL Ch9): el propio sistema que genera contenido está sujeto a los mismos límites — no confiar en su autoevaluación sin verificación externa.
 - **Cognición temprana ≠ cognición tardía** (WDSL Ch6): un novato no puede aplicar el método reducido de un experto — necesita su propio camino, no una versión resumida.
 
+## Núcleo: Diseño y uso de flashcards (dos reglas de contenido + protocolo de uso)
+
+**Reglas de contenido de la card** (aplican al generarla):
+1. **Formato de dos caras estricto — predicción antes que feedback.** El frente presenta un estímulo único (pregunta o término), el dorso la respuesta exacta. El frente NUNCA incluye pistas que permitan reconocer la respuesta sin recuperarla activamente — el desfase entre lo que predecís y lo que realmente dice el dorso es la señal de error de predicción que consolida memoria.
+2. **Información mínima en el frente (dificultad deseable).** Cuantas menos pistas tenga el frente, más esfuerzo de recuperación profunda exige — y ese esfuerzo es lo que fortalece la memoria a largo plazo, no un costo a evitar (mismo principio que MIS Ch4, aplicado a esta unidad más chica de contenido).
+3. **Nunca reciclar el texto exacto de un `chequeo` (adjunct question) ya incrustado en la síntesis.** Cada reaparición de un concepto debe variar de ángulo o contexto (2.1.2, dificultad creciente en cada reaparición) — una card idéntica a una pregunta ya vista es memorizar la pregunta, no recuperar el concepto.
+
+**Protocolo de uso** (no lo hace el generador, lo ejecuta la herramienta de repaso — Anki u otra):
+4. **Clasificación dinámica por rendimiento.** Fallar una card la vuelve a poner en revisión de corto plazo (minutos); acertarla la mueve a un intervalo mayor. En Anki esto es nativo vía "Learning Steps" — no requiere configuración manual de lógica, solo elegir bien los intervalos.
+5. **Sobreaprendizaje dentro de la sesión.** No alcanza con acertar una vez — el beneficio se consolida cuando se responde bien más de una vez en la misma sesión antes de "graduar" la card a repaso espaciado. En Anki, esto se logra configurando 2+ "Learning Steps" (ej. `10m 1d`), no con el default de un solo paso.
+6. **Espaciado creciente entre sesiones, nunca todo en una sola jornada.** Repasos concentrados en un solo día no generan el mismo efecto que la misma cantidad de repasos distribuidos en días/semanas — esto es lo que hace el scheduler de Anki (SM-2 o FSRS) automáticamente una vez que la card gradúa; no hay que planificarlo a mano, hay que no interferir con él (no revises todo el mazo de una sentada "para adelantar").
+
 ---
 
 ## Índice de Capítulos
